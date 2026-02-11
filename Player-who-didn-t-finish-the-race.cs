@@ -1,19 +1,22 @@
 using System;
 using System.Collections.Generic;
 
-public class Solution {
-    public string solution(string[] participant, string[] completion) {
-        Dictionary<string, int> counts = new Dictionary<string, int>(completion.Length);
+public class Solution 
+{
+    public string solution(string[] participant, string[] completion) 
+    {
+        var counts = new Dictionary<string, int>(completion.Length);
 
-        foreach (string name in completion) {
-            if (counts.ContainsKey(name))
-                counts[name]++;
-            else
-                counts[name] = 1;
+        foreach (var name in completion) 
+        {
+            if (counts.ContainsKey(name)) counts[name]++;
+            else counts[name] = 1;
         }
 
-        foreach (string name in participant) {
-            if (!counts.ContainsKey(name) || counts[name] == 0) {
+        foreach (var name in participant) 
+        {
+            if (!counts.ContainsKey(name) || counts[name] == 0) 
+            {
                 return name;
             }
             counts[name]--;
@@ -24,27 +27,27 @@ public class Solution {
 }
 
 
-public class Solution {
-    public string solution(string[] participant, string[] completion) {
-        Dictionary<string, int> counts = new Dictionary<string, int>(participant.Length);
+public class Solution 
+{
+    public string solution(string[] participant, string[] completion) 
+    {
+        var counts = new Dictionary<string, int>(participant.Length);
 
-        foreach (string name in participant) {
+        foreach (var name in participant) 
+        {
             if (counts.ContainsKey(name)) counts[name]++;
             else counts[name] = 1;
         }
 
-        foreach (string name in completion) {
-            if (counts.ContainsKey(name)) {
-                counts[name]--;
-            } else {
-                counts[name] = -1;
-            }
+        foreach (var name in completion) 
+        {
+            if (counts.ContainsKey(name)) counts[name]--;
+            else counts[name] = -1;
         }
 
-        foreach (var pair in counts) {
-            if (pair.Value > 0) {
-                return pair.Key;
-            }
+        foreach (var pair in counts) 
+        {
+            if (pair.Value > 0) return pair.Key;
         }
 
         return "";
