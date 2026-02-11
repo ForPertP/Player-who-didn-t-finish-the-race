@@ -45,6 +45,11 @@ public class Solution
             else counts[name] = -1;
         }
 
+        foreach (var (name, count) in counts) 
+        {
+            if (count > 0) return name;
+        }        
+
         foreach (var pair in counts) 
         {
             if (pair.Value > 0) return pair.Key;
