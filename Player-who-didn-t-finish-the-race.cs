@@ -34,7 +34,11 @@ public class Solution {
         }
 
         foreach (string name in completion) {
-            counts[name]--;
+            if (counts.ContainsKey(name)) {
+                counts[name]--;
+            } else {
+                counts[name] = -1;
+            }
         }
 
         foreach (var pair in counts) {
